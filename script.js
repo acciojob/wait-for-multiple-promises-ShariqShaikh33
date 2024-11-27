@@ -48,11 +48,7 @@ Promise.all([Promise1, Promise2, Promise3]).then(res => {
 	let endTime = Date.now();
 	let TotalTime = (endTime - startTime) / 1000;
 
-	
-
-	
-
-	
+	document.getElementById("Loading").remove();
 
 	let row4 = tablebody.insertRow(-1);
 	let cell7 = row4.insertCell(0);
