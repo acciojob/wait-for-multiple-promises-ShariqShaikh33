@@ -1,7 +1,7 @@
 let tablebody = document.getElementById('output');
 
 let row1 = tablebody.insertRow(-1);
-row1.classList.add("Loading");
+row1.setAttribute("id","Loading");
 
 let cell1 = row1.insertCell(0);
 cell1.innerHTML = "Loading..."
