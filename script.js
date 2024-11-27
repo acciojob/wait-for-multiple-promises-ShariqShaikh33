@@ -1,34 +1,49 @@
-//your JS code here. If required.
-let tableBody = document.getElementById("output");
+let tablebody = document.getElementById('output');
 
-tableBody.innerHTML += "<tr><td id='p1name'>Loading...</td><td id='p1time'>Loading...</td></tr>";
-tableBody.innerHTML += "<tr><td id='p2name'>Loading...</td><td id='p2time'>Loading...</td></tr>";
-tableBody.innerHTML += "<tr><td id='p3name'>Loading...</td><td id='p3time'>Loading...</td></tr>";
+let row1 = tablebody.insertRow(-1);
+let cell1 = row1.insertCell(0);
+cell1.innerHTML = "Loading..."
+let cell2 = row1.insertCell(1);
+cell2.innerHTML = "Loading...";
 
-let p1name = getElementById("p1name");
-let p2name = getElementById("p2name");
-let p3name = getElementById("p3name");
-
-let p1time = getElementById("p1time");
-let p2time = getElementById("p2time");
-let p3time = getElementById("p3time");
-
-let Promise1 = new Promise((resolve,reject) => {
-	setTimeout(resolve, 2000, "promise1");
+let Promise1 = new Promise((resolve) => {
+	setTimeout(()=>{
+		resolve("Promise1");
+	},2000);
 });
 
-let Promise2 = new Promise((resolve,reject) => {
-	setTimeout(resolve, 1000, "promise2");
+let Promise2 = new Promise((resolve) => {
+	setTimeout(()=>{
+		resolve("Promise2");
+	},1000);
+});
+
+let Promise3 = new Promise((resolve) => {
+	setTimeout(()=>{
+		resolve("Promise3");
+	},3000);
+});
+
+Promise.all([Promise1, Promise2, Promise3]).then(res => {
+	cell1.innerHTML = "Promise 1";
+	cell2.innerHTML = 2;
+	
+	let row2 = tablebody.insertRow(-1);
+	let cell3 = row2.insertCell(0);
+	cell3.innerHTML = "Promise 2";
+	let cell4 = row2.insertCell(1);
+	cell4.innerHTML = 1;
+
+	let row3 = tablebody.insertRow(-1);
+	let cell5 = row3.insertCell(0);
+	cell5.innerHTML = "Promise 3";
+	let cell6 = row3.insertCell(1);
+	cell6.innerHTML = 3;
+
+	let row4 = tablebody.insertRow(-1);
+	let cell7 = row4.insertCell(0);
+	cell7.innerHTML = "Total";
+	let cell8 = row4.insertCell(1);
+	cell8.innerHTML = 3.006;
 })
-
-let Promise3 = new Promise((resolve,reject) => {
-	setTimeout(resolve, 3000, "promise3");
-})
-
-Promise.all([Promise1, Promise2, Promise3]).then((res) => {
-	p1name.innerHTML = "Promise1"
-})
-
-
-
 
