@@ -45,6 +45,7 @@ Promise.all([Promise1, Promise2, Promise3]).then(res => {
 	let endTime = Date.now();
 	let TotalTime = (endTime - startTime) / 1000;
 
+	loadingrow.remove();
 	loadingcell.innerHTML = "";
 	
 	let row4 = tablebody.insertRow(-1);
