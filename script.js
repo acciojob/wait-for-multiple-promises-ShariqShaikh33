@@ -1,19 +1,8 @@
 let startTime = Date.now();
 
 let tablebody = document.getElementById('output');
-
-let row = tablebody.insertRow(-1);
-row.setAttribute("id","Loading");
-let cell = row.insertCell(0);
-cell.setAttribute("colspan","2");
-cell.innerHTML = "Loading...";
-
-
-
-
-
-
-
+let loadingrow = document.getElementById("loading");
+let loadingcell = loadingrow.cells[0]
 
 let Promise1 = new Promise((resolve) => {
 	let time1 = Math.random()*(3000-1000)+1000;
@@ -56,7 +45,7 @@ Promise.all([Promise1, Promise2, Promise3]).then(res => {
 	let endTime = Date.now();
 	let TotalTime = (endTime - startTime) / 1000;
 
-	cell.innerHTML = "";
+	loadingcell.innerHTML = "";
 	
 	let row4 = tablebody.insertRow(-1);
 	let cell7 = row4.insertCell(0);
